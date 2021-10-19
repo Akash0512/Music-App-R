@@ -1,8 +1,3 @@
-/**
- * Learn more about using TypeScript with React Navigation:
- * https://reactnavigation.org/docs/typescript/
- */
-
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -13,10 +8,31 @@ declare global {
   }
 }
 
+
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
+};
+
+export type BottomTabParamList = {
+  TabOne: undefined;
+  TabTwo: undefined;
+};
+
+export type RootTabParamList = {
+  TabOne: undefined;
+  TabTwo: undefined;
+};
+
+
+export type TabOneParamList = {
+  TabOneScreen: undefined;
+  AlbumScreen: undefined;
+};
+
+export type TabTwoParamList = {
+  TabTwoScreen: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
@@ -34,9 +50,18 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
   NativeStackScreenProps<RootStackParamList>
 >;
 
-
 export type Album = {
-    id: string,
-    imageUri: string,
-    artist: string,
+  id: string;
+  name: string;
+  by: string;
+  numberOfLikes: number;
+  imageUri: string;
+  artistsHeadline: string;
+}
+
+export type Song = {
+  id: string,
+  imageUri: string,
+  title: string,
+  artist: string,
 }
